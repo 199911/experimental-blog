@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/wkwiatek/react-hot-loader-minimal-boilerplate#readme",
   "dependencies": {
+    "isomorphic-fetch": "https://registry.npmjs.org/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
