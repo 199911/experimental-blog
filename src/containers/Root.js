@@ -1,7 +1,8 @@
 import React from 'react'
+import FrontPage from '../pages/FrontPage';
 
 const Root = () => (
-  <div>Hello React Hot Loader!</div>
+  <FrontPage />
 )
 
 export default Root
