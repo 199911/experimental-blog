@@ -12,20 +12,21 @@ class FrontPage extends React.Component {
   componentDidMount() {
     fetch('https://199911.github.io/blog-data/front-page.json')
       .then((res) => (res.json()))
-      .then((posts) => {
+      .then((data) => {
+        document.title = data.title;
         this.setState({
-          posts
+          feeds: data.feeds
         });
       })
   }
 
   render() {
-    const { posts } = this.state;
-    if (posts) {
+    const { feeds } = this.state;
+    if (feeds) {
       return (
         <div>
           {
-            posts.map((post) => {
+            feeds.map((post) => {
               return (
                 <Link key={ post.slug } style={{ display: 'block', height: '300px', overflow: 'hidden' }} to={ post.slug }>
                   <h1>

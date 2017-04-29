@@ -12,9 +12,10 @@ class ArticlePage extends React.Component {
     const { postSlug } = this.props.match.params;
     fetch(`https://199911.github.io/blog-data/posts/${postSlug}.json`)
       .then((res) => (res.json()))
-      .then((post) => {
+      .then((data) => {
+        document.title = data.title;
         this.setState({
-          post
+          post: data.post
         });
       })
   }
