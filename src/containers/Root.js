@@ -5,11 +5,16 @@ import {
     Link
 } from 'react-router-dom'
 import FrontPage from '../pages/FrontPage';
+import ArticlePage from '../pages/ArticlePage';
 
 const Root = () => (
     <Router>
-        <Route exact path="/" component={FrontPage}/>
+        <div>
+            <Route exact path="/" component={FrontPage}/>
+            <Route exact path="/:postSlug" component={ArticlePage}/>
+        </div>
     </Router>
 )
+
 
 export default Root
