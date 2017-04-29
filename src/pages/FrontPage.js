@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import 'isomorphic-fetch';
 
-class HelloMessage extends React.Component {
+class FrontPage extends React.Component {
 
   constructor() {
   super();
@@ -11,22 +12,23 @@ class HelloMessage extends React.Component {
   componentDidMount() {
     fetch('https://199911.github.io/blog-data/front-page.json')
       .then((res) => (res.json()))
-      .then((posts) => {
+      .then((data) => {
+        document.title = data.title;
         this.setState({
-          posts
+          feeds: data.feeds
         });
       })
   }
 
   render() {
-    const { posts } = this.state;
-    if (posts) {
+    const { feeds } = this.state;
+    if (feeds) {
       return (
         <div>
           {
-            posts.map((post) => {
+            feeds.map((post) => {
               return (
-                <div style={{ height: '300px', overflow: 'hidden' }}>
+                <Link key={ post.slug } style={{ display: 'block', height: '300px', overflow: 'hidden' }} to={ post.slug }>
                   <h1>
                   {post.title}
                   </h1>
@@ -35,7 +37,7 @@ class HelloMessage extends React.Component {
                   <pre>
                     { JSON.stringify(post, null, 4) }
                   </pre>
-                </div>
+                </Link>
               );
             })
           }
@@ -47,4 +49,4 @@ class HelloMessage extends React.Component {
   }
 }
 
-export default HelloMessage
+export default FrontPage
