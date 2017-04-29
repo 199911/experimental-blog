@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --hot --history-api-fallback --open"
+    "dev": "webpack-dev-server --hot --history-api-fallback --open",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
