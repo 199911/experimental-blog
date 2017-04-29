@@ -10,8 +10,8 @@ import ArticlePage from '../pages/ArticlePage';
 const Root = () => (
     <Router>
         <div>
-            <Route exact path="/" component={FrontPage}/>
-            <Route exact path="/:postSlug" component={ArticlePage}/>
+            <Route exact path="/react-blog/" component={FrontPage}/>
+            <Route exact path="/react-blog/:postSlug" component={ArticlePage}/>
         </div>
     </Router>
 )

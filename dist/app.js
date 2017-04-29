@@ -13813,8 +13813,8 @@ var Root = function Root() {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             null,
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Route */], { exact: true, path: '/', component: __WEBPACK_IMPORTED_MODULE_2__pages_FrontPage__["a" /* default */] }),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Route */], { exact: true, path: '/:postSlug', component: __WEBPACK_IMPORTED_MODULE_3__pages_ArticlePage__["a" /* default */] })
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Route */], { exact: true, path: '/react-blog/', component: __WEBPACK_IMPORTED_MODULE_2__pages_FrontPage__["a" /* default */] }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Route */], { exact: true, path: '/react-blog/:postSlug', component: __WEBPACK_IMPORTED_MODULE_3__pages_ArticlePage__["a" /* default */] })
         )
     );
 };
@@ -13876,9 +13876,10 @@ var ArticlePage = function (_React$Component) {
 
       fetch('https://199911.github.io/blog-data/posts/' + postSlug + '.json').then(function (res) {
         return res.json();
-      }).then(function (post) {
+      }).then(function (data) {
+        document.title = data.title;
         _this2.setState({
-          post: post
+          post: data.post
         });
       });
     }
@@ -13975,22 +13976,23 @@ var FrontPage = function (_React$Component) {
 
       fetch('https://199911.github.io/blog-data/front-page.json').then(function (res) {
         return res.json();
-      }).then(function (posts) {
+      }).then(function (data) {
+        document.title = data.title;
         _this2.setState({
-          posts: posts
+          feeds: data.feeds
         });
       });
     }
   }, {
     key: 'render',
     value: function render() {
-      var posts = this.state.posts;
+      var feeds = this.state.feeds;
 
-      if (posts) {
+      if (feeds) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           null,
-          posts.map(function (post) {
+          feeds.map(function (post) {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Link */],
               { key: post.slug, style: { display: 'block', height: '300px', overflow: 'hidden' }, to: post.slug },
